@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class ApiController {
@@ -29,4 +30,11 @@ public class ApiController {
     public List<QuestionAnswer> getAllQuestionAnswer() {
         return questionAnswerService.getAllQuestionAnswer();
     }
+
+    @GetMapping(value = "/listid")
+    public List<Long> getAllId() {
+        List<QuestionAnswer> questionAnswerList = questionAnswerService.getAllQuestionAnswer();
+        return questionAnswerList.stream().map(QuestionAnswer::getId).sorted().collect(Collectors.toList());
+    }
+
 }
