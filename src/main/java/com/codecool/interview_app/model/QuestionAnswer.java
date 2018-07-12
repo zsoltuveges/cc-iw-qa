@@ -3,26 +3,25 @@ package com.codecool.interview_app.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class QuestionAnswer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-
     String question;
+    @Lob
     String answer;
 
 
     public QuestionAnswer() {
     }
 
-    public QuestionAnswer(String question, String answer) {
+    public QuestionAnswer(long id, String question, String answer) {
+        this.id = id;
         this.question = question;
         this.answer = answer;
     }

@@ -26,5 +26,9 @@ public class QuestionAnswerService {
         return questionAnswerRepository.findAll();
     }
 
+    public QuestionAnswer getQuestionAnswerById(long id) {
+        return questionAnswerRepository.findById(id).get();
+    }
+
 }
 

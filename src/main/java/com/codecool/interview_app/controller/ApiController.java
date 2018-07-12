@@ -2,12 +2,13 @@ package com.codecool.interview_app.controller;
 
 import com.codecool.interview_app.model.QuestionAnswer;
 import com.codecool.interview_app.service.QuestionAnswerService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Random;
 
 @RestController
 public class ApiController {
@@ -19,7 +20,7 @@ public class ApiController {
     }
 
     @PostMapping(value = "/add")
-    public HttpStatus addQuestionAnswer(@RequestBody QuestionAnswer questionAnswer) {
+    public HttpStatus addQuestionAnswer(@ModelAttribute QuestionAnswer questionAnswer) {
         questionAnswerService.add(questionAnswer);
         return HttpStatus.OK;
     }
