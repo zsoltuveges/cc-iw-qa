@@ -34,7 +34,7 @@ public class IndexController {
     }
 
     @GetMapping(value = "/{id}")
-    public String getById(@PathVariable("id") long id, Model model) {
+    public String getById(@PathVariable("id") String id, Model model) {
         QuestionAnswer result;
         try {
             result = questionAnswerService.getQuestionAnswerById(id);

@@ -32,7 +32,7 @@ public class ApiController {
     }
 
     @GetMapping(value = "/listid")
-    public List<Long> getAllId() {
+    public List<String> getAllId() {
         List<QuestionAnswer> questionAnswerList = questionAnswerService.getAllQuestionAnswer();
         return questionAnswerList.stream().map(QuestionAnswer::getId).sorted().collect(Collectors.toList());
     }

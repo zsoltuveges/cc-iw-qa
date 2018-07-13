@@ -11,7 +11,7 @@ import javax.persistence.Lob;
 public class QuestionAnswer {
 
     @Id
-    long id;
+    String id;
     String question;
     @Lob
     String answer;
@@ -20,17 +20,17 @@ public class QuestionAnswer {
     public QuestionAnswer() {
     }
 
-    public QuestionAnswer(long id, String question, String answer) {
+    public QuestionAnswer(String id, String question, String answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
